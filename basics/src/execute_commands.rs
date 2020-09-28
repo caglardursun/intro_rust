@@ -4,7 +4,7 @@ pub fn list_directory(path:&str)
 {
     let _c = Command::new("ls")
     .arg("-l")
-    .arg("/home/caglar")
+    .arg(path)
     .output()
     .expect("ls is not usable");
 
