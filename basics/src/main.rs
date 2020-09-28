@@ -1,6 +1,7 @@
 // mod primitive_types;
 // mod ownership_barrowing;
 mod execute_commands;
+mod lifetime_parameter;
 
 
 fn main(){
@@ -11,4 +12,6 @@ fn main(){
     // ownership_barrowing::ownership();
     // ownership_barrowing::barrowing();
     execute_commands::list_directory("/home/caglar");
+    execute_commands::pipe_two_process("code");
+    lifetime_parameter::test_it();
 }

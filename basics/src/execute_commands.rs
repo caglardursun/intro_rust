@@ -1,4 +1,5 @@
-use std::process::Command;
+use std::process::{Command,Stdio};
+use std::io::copy;
 
 pub fn list_directory(path:&str)
 {
@@ -11,4 +12,18 @@ pub fn list_directory(path:&str)
     let result = String::from_utf8(_c.stdout).expect("Not UTF8 shit!");
 
     println!("{}",result);
+}
+
+pub fn pipe_two_process(process_name:&str){
+    let c = Command::new("ps")
+                .arg("aux")
+                .spawn()
+                .expect("Command didn' t run");
+
+    let d = Command::new("grep")
+                    .arg(process_name)
+                    .stdout(Stdio::piped())
+                    .spawn() // executes the command as a child process
+                    .expect("Fucked up !");
+    copy(&mut d.stdout.unwrap(),&mut c.stdin.unwrap()).unwrap();
 }
