@@ -17,7 +17,7 @@ pub fn list_directory(path:&str)
 pub fn pipe_two_process(process_name:&str){
     let c = Command::new("ps")
                 .arg("aux")
-                .spawn()
+                .spawn()// executes the command as a child process
                 .expect("Command didn' t run");
 
     let d = Command::new("grep")
@@ -25,5 +25,5 @@ pub fn pipe_two_process(process_name:&str){
                     .stdout(Stdio::piped())
                     .spawn() // executes the command as a child process
                     .expect("Fucked up !");
-    copy(&mut d.stdout.unwrap(),&mut c.stdin.unwrap()).unwrap();
+    copy(&mut d.stdout.unwrap(),&mut c.stdin.unwrap()).unwrap(); //Coz copy returns result
 }
