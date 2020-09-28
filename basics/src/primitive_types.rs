@@ -1,6 +1,7 @@
 pub fn tuple_types()
 {
-    println!("\n");
+    println!("\n");    
+
     let t = (1,'a',false);
     let f = (1,'a',(1,'a',false));
     println!("{} {} {}",t.0,t.1,t.2);
@@ -39,6 +40,11 @@ pub fn string_types()
     println!("Slice of string : {}",slice_of);
 
     println!("Name contains Çağlar : {}",s.contains("Çağlar"));
+
+    let age = String::from(" 38 years old");
+    let result = s + &age;
+    println!("{}",result);
+
     println!("\n");
 }
 
