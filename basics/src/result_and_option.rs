@@ -1,10 +1,13 @@
 use std::collections::HashMap;
+use std::env::args;
+
+
 /*
     SOmething like that ...
 
-    Result<T> {
+    Result<T,E> {
         Ok(T)
-        Error(T)
+        Error(E)
     }
 
     Option<T>{
@@ -42,4 +45,35 @@ pub fn test_it()
     let result_sure = hm.get(&3).unwrap();
     println!("We already know that 3 exists {}",result_sure);
 
+    //Here we are Options return ... 
+
+    match "3t".parse::<f32>(){
+        Ok(value)=> println!("Value is {}",value),
+        Err(e)=>println!("Error occured {}",e)
+    }
+
+
+    match "3".parse::<f32>(){
+        Ok(value)=> println!("Value is {}",value),
+        Err(e)=>println!("Error occured {}",e)
+    }
+
+    //cargo run -- h i p d
+    match getArg(3){
+        Ok(value)=>println!("Ok guyes : {}",value),
+        Err(e)=>println!("Now fuck off {}",e)
+    }
+    
+}
+
+pub fn getArg(n:usize) ->Result<String,String> 
+{
+    for (index,a) in args().enumerate() 
+    {
+        if index == n 
+        {
+                return Ok(a);
+        }   
+    }
+    Err("Not Enough Args".to_string())
 }
