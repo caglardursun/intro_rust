@@ -7,12 +7,12 @@ pub struct TL(f32);  // The poorest & the cheapest one ...
 
 pub trait ToUSDv<F> 
 {
-    fn to_uv(&self,F) -> f32; //where F is any type
+    fn to_uv(&self,f:F) -> f32; //where F is any type
 }
 
 pub trait FromUSDv<F>
 {
-    fn from_uv(&self,f32)->F;
+    fn from_uv(&self,f:f32)->F;
 }
 
 pub struct Ex{
@@ -21,7 +21,7 @@ pub struct Ex{
 }
 
 impl ToUSDv<TL> for Ex{
-    fn to_uv(&self,g:GBP) ->f32{
+    fn to_uv(&self,tl) ->f32{
         (g.0 as f32) * self.tl
     }
 }
@@ -29,11 +29,13 @@ impl ToUSDv<TL> for Ex{
 impl FromUSDv<TL> for Ex{
     fn from_uv(&self,f:f32)->TL
     {
-        
+        TL((f / self.tl) as f32)
     }
 }
 
 pub fn test_it()
 {
+    
+    
 
 }
