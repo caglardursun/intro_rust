@@ -12,7 +12,7 @@ pub trait ToUSDv<F>
 
 pub trait FromUSDv<F>
 {
-    fn from_uv(&self,f:f32)->F;
+    fn from_uv(&self,f:f32)->F; //where F is any type
 }
 
 pub struct Ex{
@@ -34,13 +34,30 @@ impl FromUSDv<TL> for Ex{
     }
 }
 
+//F is from T is to type
+pub trait Exchange<F,T> {
+    fn convert(&self,f:F)->T;
+}
+
+impl <E,F,T> Exchange<F,T> for E 
+    where E:ToUSDv<F> + FromUSDv<T>
+{
+    fn convert(&self,f:F) -> T{
+        self.from_uv(self.to_uv(f))
+    }
+}
+
 pub fn test_it()
 {
     let g = GBP(200.0);
     let ex = Ex{ tl: 0.7, gbp: 1.3 };
-    let c = ex.from_uv(ex.to_uv(g));
+    
+    // let c = ex.from_uv(ex.to_uv(g));
+    let c = ex.convert(g);
     
     if c == TL(371.) {
         println!("Holly molly works !");
+    }else{
+        println!("Nope calculation is wrong !");
     }
 }
