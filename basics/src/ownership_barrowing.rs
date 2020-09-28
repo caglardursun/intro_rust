@@ -34,9 +34,10 @@ pub fn ownership(){
         v.push(elem);
     }
 
-    barrow1(&v);
-    barrow2(&v);
-    println!("{:?}",v);
+    let t = re(v);
+    //ownership goes to t not v so 
+    //println!("{:?}",v); will not work
+    println!("{:?}",t);
 
     let a =5;
     let b=10;
@@ -48,7 +49,7 @@ pub fn ownership(){
 //we return the ownership ... now v does not have a ownership
 fn re(v:Vec<i32>) -> Vec<i32>{
     println!("{}",v[10]+v[11]);
-    v//return ownership using return
+    v//return the ownership
 }
 
 fn barrow1(v:&Vec<i32>){
