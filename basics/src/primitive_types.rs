@@ -41,3 +41,26 @@ pub fn string_types()
     println!("Name contains Çağlar : {}",s.contains("Çağlar"));
     println!("\n");
 }
+
+pub fn primitives()
+{
+    //Mut means can be changable
+    //like a variable otherwise 
+    //It's a read only variable
+    let mut x:i8 = 1;
+    let mut y:i16 = 2;
+    let mut z:i32 = 3;
+    x += 2;
+    y += 2;
+    z *=2;
+    println!("{} {} {}",x,y,z);
+    let a:f32 = 4.0;
+
+    println!("i8 MAX {}",i8::MAX);
+    println!("i16 MAX {}",i16::MAX);
+    println!("i32 MAX {}",i32::MAX);
+    println!("i64 MAX {}",i64::MAX);
+    println!("f32 MAX {}",f32::MAX);    
+    println!("usize MIN {} MAX {}" ,usize::MIN,usize::MAX);
+    println!("a is {}",a);
+}
