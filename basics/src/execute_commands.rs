@@ -25,5 +25,6 @@ pub fn pipe_two_process(process_name:&str){
                     .stdout(Stdio::piped())
                     .spawn() // executes the command as a child process
                     .expect("Fucked up !");
-    copy(&mut d.stdout.unwrap(),&mut c.stdin.unwrap()).unwrap(); //Coz copy returns result
+
+    copy(&mut d.stdout.unwrap(),&mut c.stdin.unwrap()).unwrap(); //Coz copy returns result so
 }
