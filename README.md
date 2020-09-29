@@ -1,4 +1,4 @@
-# ntroduction to Rust Language
+# Introduction to Rust Language
 
 My personal experience about Rust Language. If you don't want to debug, just go to the directory of the apps. Open up the terminal and run `cargo run` command. If you wanna debug the application, make sure vscode code launch configuration is like that 
 
