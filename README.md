@@ -1,6 +1,6 @@
 # intro_rust Introduction to Rust Language
 
-My personal experience about Rust Language. If you don't want to debug, just go to the directory of the apps. Open up the terminal and run `cargo run` command. If you wanna debug the application. Make sure vscode code launch configuration is like that 
+My personal experience about Rust Language. If you don't want to debug, just go to the directory of the apps. Open up the terminal and run `cargo run` command. If you wanna debug the application, make sure vscode code launch configuration is like that 
 
 ```
     version": "0.2.0",
@@ -16,6 +16,9 @@ My personal experience about Rust Language. If you don't want to debug, just go 
         }
     ]
 ```
+
+I just use it for my linux distro btw. Windows C++ debugging just works fine.
+
 
 ### primitive_types : 
 Some of the tryouts about basic data types 
