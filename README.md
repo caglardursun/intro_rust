@@ -19,6 +19,8 @@ My personal experience about Rust Language. If you don't want to debug, just go 
 
 I just use it for my linux distro btw. Windows C++ debugging just works fine. But don't expect to much. Coz no debug helper, no natvis file. So If you wanna debug the complex datatypes (I'm not talking about the vector data type btw.), good luck !
 
+If you wanna check the library, just go to the directory run `cargo test` command.
+
 
 ### primitive_types : 
 Some of the tryouts about basic data types 
@@ -28,7 +30,7 @@ like `string tuple, i8,i32, usize` etc.
 The main difference of Rust from the other languages. The performance comes from the idea of ownership & barrowing. Behind the `Safe Language` idea.
 
 ### defining_traits:
-Descripbes how to use traits on stuct and enums. 
+Describes how to use traits on stuct and enums. 
 
 ### generic_stuff: 
 Describes how to use templates and introduction to metadata programming on Rust
