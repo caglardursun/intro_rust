@@ -17,7 +17,7 @@ My personal experience about Rust Language. If you don't want to debug, just go 
     ]
 ```
 
-I just use it for my linux distro btw. Windows C++ debugging just works fine.
+I just use it for my linux distro btw. Windows C++ debugging just works fine. But don't expect to much. Coz no debug helper, no natvis file. So If you wanna debug the complex datatypes (I'm not talking about the vector data type btw.), good luck !
 
 
 ### primitive_types : 
