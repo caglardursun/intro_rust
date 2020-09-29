@@ -11,6 +11,24 @@ fn greet(people: &[&str]) {
     }
 }
 
+fn label_loop()
+{
+    let v = vec![2,4,6,8,0,12,14,16];
+    'outer: for i in 0..10{
+        for n in 0..10 {
+            if n== 11 {
+                break 'outer; //Similar to goto statement in c
+            }
+        }
+    }
+    let mut count = 1;
+    loop{
+        println!("Infinite loop {} ",count);
+        //no count++ or ++count
+        count +=1;
+    }
+}
+
 pub fn test_it(){
 
     greet(&[]);
@@ -20,5 +38,7 @@ pub fn test_it(){
     greet(&["Çağlar", "Seda"]);
     // output: Hello, Joan and Hugh. Nice to see you are at least 2!
     greet(&["Çağlar", "Seda", "Ada"]);
+
+    label_loop();
 
 }

@@ -1,13 +1,18 @@
 
-pub fn fibonacci(i:i32) -> i32
+pub fn fibonacci(i:i32) -> Result<i32,String>
 {
-    if i == 1 || i == 2
-    {
-        1
-    }
-    else{
-        fibonacci(i-1) + fibonacci(i-2)
-    }
+
+    // match i {
+        
+    // }
+
+    // if i == 1 || i == 2
+    // {
+    //     Ok(1)
+    // }
+    // else{
+    //     fibonacci(i-1) + fibonacci(i-2)
+    // }
 }
 
 
