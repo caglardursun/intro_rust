@@ -3,3 +3,10 @@
 [[package]]
 name = "primitive_types"
 version = "0.1.0"
+dependencies = [
+ "testlibrary",
+]
+
+[[package]]
+name = "testlibrary"
+version = "0.1.0"
