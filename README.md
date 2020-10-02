@@ -41,12 +41,28 @@ How to execute process and pipe them their outputs
 ### generic_iterators : 
 Iterator templates 
 
-### result_and_option: 
+### result_and_option : 
 Build in Structs which uses for many place and build in std library. `Option` and `Result` 
+
+### box_and_closure : 
+Defines how to use `Box` smart pointer and closure functions 
+```
+    enum List
+    {
+        Cons(i32,Box<List>),
+        End,
+    }
+    let l = Cons(1,Box::new(Cons(2,Box::new(Cons(3,Box::new(End)) ))));
+
+
+    let f = |i| i+1;
+    let g = |i:i32| -> i32 {i+1};
+
+```
 
 ### some_cool_features : 
 These features comes with Rust 2018. 
 
-### test library project 
+### test library project :
 This library project is used for to check how to give a library referance to external lib project. 
 And generating documentation using `cargo doc` command
