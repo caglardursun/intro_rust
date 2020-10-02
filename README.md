@@ -46,3 +46,7 @@ Build in Structs which uses for many place and build in std library. `Option` an
 
 ### some_cool_features : 
 These features comes with Rust 2018. 
+
+### test library project 
+This library project is used for to check how to give a library referance to external lib project. 
+And generating documentation using `cargo doc` command
