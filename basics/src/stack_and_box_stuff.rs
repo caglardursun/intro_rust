@@ -24,6 +24,7 @@ pub fn test_it()
 
     let l = LinkedList::new(3);
     l = l.push(4);
+    //I know it's look like a flutter shit :/ & kind a hate it 
     println!("{}", l == Head(4,Box::new(Head(3,Box::new(Tail)))));
 
 }

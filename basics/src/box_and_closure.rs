@@ -42,8 +42,12 @@ fn print_closure2()
     run(p);
 
     let x = |i| i*10;
-    println!("3 * 10 = {}",add3(x));
+    println!("3 * 10 = {}",add3(x));    
 }
+
+
+
+
 
 fn print_closure(){
     //f (i:32) -> i32 { i+1 }
@@ -59,10 +63,73 @@ fn print_closure(){
 }
 
 
+fn create() -> Box<Fn()> {
+    //move all of the values inside of the closure will die
+    Box::new(move || println!("This is a closure box"))
+}
+
+fn create_box(){
+    let x = create();
+    x();
+}
+
+
+/*
+    v.iter() -> next()
+
+    trait Iterator {
+        type Item;
+        fn next(&mut self) -> Option<Self::Item>;
+    }
+*/
+
+fn vector_stuff(){
+     let v = vec![0,2,4,6,3];
+    //let v : Vec<i32> = Vec::new();
+    println!("v  {}",v.iter().any(|&x| x!=2));
+
+
+    let is_even = |n:u32| -> bool {n%2 == 0};
+    let mut c = 0;
+
+    for n in 0..{
+        let x = n * n;
+        if x>=1000 
+        {
+            break;
+        }else if is_even(x) {
+            c +=x;
+        }
+
+    }
+    print!("c : {}",c);
+
+    
+
+    print!("\n");
+}
+
+fn map_fnc(){
+
+    let is_even = |i:i32| -> bool{ i%2==0 };
+
+    let s:u32 = 
+    (0 ..).map(|n| n*n)
+        .take_while(|&n| n<10000)
+        .filter(|&n| is_even(n))
+        .fold(0, |s,i| {s+i as u32});
+
+    println!("{}",s);
+
+}
+
 pub fn test_it() 
 {
    print_list();
    print_box_val();
    print_closure();
    print_closure2();
+   create_box();
+   vector_stuff();
+   map_fnc();
 }
