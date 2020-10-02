@@ -1,5 +1,5 @@
 [package]
-name = "primitive_types"
+name = "basics"
 version = "0.1.0"
 authors = ["Çağlar Dursun <dursuncaglar@gmail.com>"]
 edition = "2018"
