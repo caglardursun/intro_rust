@@ -45,6 +45,18 @@ pub fn string_types()
     let result = s + &age;
     println!("{}",result);
 
+    //raw string 
+    let json = r#"        
+        {
+            name:"Çağlar",
+            surname:"Dursun",
+            age: 38
+        }
+    
+    "#;
+
+    println!("{}",json);
+
     println!("\n");
 }
 
