@@ -1,4 +1,4 @@
-//mod primitive_types;
+// mod primitive_types;
 // mod ownership_barrowing;
 // mod execute_commands;
 // mod lifetime_parameter;
@@ -9,8 +9,8 @@
 // mod some_new_features;
 // mod usefull_traits;
 // mod lifetime_pointer;
-mod box_and_closure;
-
+// mod box_and_closure;
+mod macros;
 //use testlibrary;
 
 fn main(){
@@ -31,6 +31,6 @@ fn main(){
     // some_new_features::test_it();
     // usefull_traits::test_it();
     // lifetime_pointer::test_it();
-    box_and_closure::test_it();   
-    
+    // box_and_closure::test_it();   
+    macros::test_it();   
 }
