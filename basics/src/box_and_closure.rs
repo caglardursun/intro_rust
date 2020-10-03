@@ -111,7 +111,7 @@ fn vector_stuff(){
 
 fn map_fnc(){
 
-    let is_even = |i:i32| -> bool{ i%2==0 };
+    let is_even = |i| -> bool{ i%2==0 };
 
     let s:u32 = 
     (0 ..).map(|n| n*n)
