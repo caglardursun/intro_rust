@@ -38,15 +38,52 @@ Describes how to use templates and introduction to metadata programming on Rust
 ### execute_commands : 
 How to execute process and pipe them their outputs
 
+```rust
+//just run on linux/unix type OS's which has bash
+
+let _c = Command::new("ls")
+    .arg("-l")
+    .arg(path)
+    .output()
+    .expect("ls is not usable");
+```
+
 ### generic_iterators : 
-Iterator templates 
+Describes how to define iterator templates 
+
+```rust
+
+use std::ops::AddAssign;
+use std::cmp::PartialOrd;
+
+pub struct Stepper<T>
+{
+    curr:T,
+    step:T,
+    stop:T,
+}
+
+```
 
 ### result_and_option : 
 Build in Structs which uses for many place and build in std library. `Option` and `Result` 
 
+```rust
+    Result<T> {
+        Ok(T),
+        Error(E),
+    }
+
+    Option<T>{
+        Some(T),
+        None,
+    }
+```
+
 ### box_and_closure : 
 Defines how to use `Box` smart pointer and closure functions 
-```
+
+```rust
     enum List
     {
         Cons(i32,Box<List>),
@@ -60,9 +97,36 @@ Defines how to use `Box` smart pointer and closure functions
 
 ```
 
+### macros : 
+How to define your own macros for the rust
+
+
+```rust 
+macro_rules! x_and_y {
+    (x=> $e:expr) => (println!("X: {}",$e));
+    (y=> $e:expr) => (println!("Y: {}",$e));
+}
+
+macro_rules! build_fn {
+    ($func_name:ident) => (
+        fn $func_name(){
+            println!("You called {:?}()", stringify!($func_name));
+        }
+    )
+}
+
+```
+### threads_mutexes :
+Defines how to create a thread and mutex.
+
+```rust 
+use std::thread;
+use std::sync::mpsc;
+//Channels,thread move
+
+```
 ### some_cool_features : 
 These features comes with Rust 2018. 
 
-### test library project :
-This library project is used for to check how to give a library referance to external lib project. 
-And generating documentation using `cargo doc` command
+## test library project :
+This library project is used for to check how to give a library referance to external lib project. And document generating documentation using `cargo doc` command. It's kind a cool actually. 
