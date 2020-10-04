@@ -3,7 +3,9 @@
 My personal experience about Rust Language. If you don't want to debug, just go to the directory of the apps. Open up the terminal and run `cargo run` command. If you wanna debug the application, make sure vscode code launch configuration is like that 
 
 ```json
-    version": "0.2.0",
+{
+
+    "version": "0.2.0",
     "configurations": [
         {
             "type": "lldb",
@@ -15,6 +17,7 @@ My personal experience about Rust Language. If you don't want to debug, just go 
             "preLaunchTask":"Cargo build"
         }
     ]
+}
 ```
 
 I just use it for my linux distro btw. Windows C++ debugging just works fine. But don't expect to much. Coz no debug helper, no natvis file. So If you wanna debug the complex datatypes (I'm not talking about the vector data type btw.), good luck !
@@ -23,14 +26,42 @@ If you wanna check the library, just go to the directory run `cargo test` comman
 
 
 ### primitive_types : 
-Some of the tryouts about basic data types 
-like `string tuple, i8,i32, usize` etc.
+Some of the definitions on basic data types like `string tuple, i8,i32, usize` etc.
+
+```rust
+    println!("i8 MAX {}",i8::MAX);
+    println!("i16 MAX {}",i16::MAX);
+    println!("i32 MAX {}",i32::MAX);
+    println!("i64 MAX {}",i64::MAX);
+    println!("f32 MAX {}",f32::MAX);    
+    println!("usize MIN {} MAX {}" ,usize::MIN,usize::MAX);
+
+    let s : String = String::from("Çağlar Dursun");
+    println!("{}",s);
+    //Another string object
+    let ss = "Some &str converted into String".to_string();
+    println!("{}",ss);
+
+
+    let xs : [i32;5] = [1,2,3,4,0];
+    println!("{:?}",xs);
+    println!("First Element : {}",xs[0]);
+    println!("Lenght : {}",xs.len());
+    println!("Size of value : {}",std::mem::size_of_val(&xs));
+    let slices = &xs[1..4];
+
+    //tuples
+    let t = (1,'a',false);
+    let f = (1,'a',(1,'a',false));
+    println!("{} {} {}",t.0,t.1,t.2);
+
+```
 
 ### ownership_barrowing: 
 The main difference of Rust from the other languages. The performance comes from the idea of ownership & barrowing. Behind the `Safe Language` idea.
 
 ### defining_traits:
-Describes how to use traits on stuct and enums. 
+Describes how to use traits on `stuct` and `enums`. 
 
 ### generic_stuff: 
 Describes how to use templates and introduction to metadata programming on Rust
@@ -46,13 +77,13 @@ let _c = Command::new("ls")
     .arg(path)
     .output()
     .expect("ls is not usable");
+
 ```
 
 ### generic_iterators : 
 Describes how to define iterator templates 
 
 ```rust
-
 use std::ops::AddAssign;
 use std::cmp::PartialOrd;
 
@@ -62,7 +93,6 @@ pub struct Stepper<T>
     step:T,
     stop:T,
 }
-
 ```
 
 ### result_and_option : 
