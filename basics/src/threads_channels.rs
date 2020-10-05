@@ -1,5 +1,6 @@
 use std::thread;
 use std::sync::mpsc; //multiple producer single consumer  
+use std::time::Duration;
 
 fn basic_usage(){
 
@@ -70,10 +71,34 @@ pub fn channels()
     println!("got {}",rx.recv().unwrap());
 }
 
+
+const NUM_TIMERS: usize = 24;
+
+fn timer(d:usize, tx:mpsc::Sender<usize>){
+    thread::spawn(move || 
+    {
+        println!("{} setting timer ...",d);        
+        thread::sleep(Duration::from_secs(d as u64));
+        println!("{} : sent !",d);
+        tx.send(d).unwrap();
+    });
+}
+
+fn timer_caller(){
+    let (tx,rx) = mpsc::channel();
+    for i in 0..NUM_TIMERS {
+        timer(i, tx.clone());
+    }
+
+    for v in rx.iter().take(NUM_TIMERS) {
+        println!("{} : recived",v);
+    }
+}
 pub fn test_it(){
 
     basic_usage();
     joining();
     handle_join();
     channels();
+    timer_caller();
 }
