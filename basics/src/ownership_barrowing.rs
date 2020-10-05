@@ -1,4 +1,63 @@
-//This is rediculus ... I'm gonna come back and write a code which explain properlly. This is a shit !
+///
+/// Stack
+///- Extremely Fast
+///- Values must have Fixed Sizes
+///- Always puts data in on Top
+///- data pushed down as new data comes in
+///
+///
+/// Heap
+///- Less Organized and Slower
+///- Accepts Dynamicly Sized Data or Data that can Grow
+///- Returns a Pointer which goes on the stack
+///- Pointer points to where the data is on the Heap
+///
+///
+/// Onership Rules:
+///  1) Each value has a variable which is its owner.
+///  2) There can only be one owner at any given time.
+///  3) When the owner goes out of scope, the value will be dropped out of memory.
+///
+///
+/// Barrowing Rules:
+///  1) Allowed infinite borrows for readonly access.
+///  2) Readonly borrows make the original data immutable for their duration.
+///  3) Only allowed to pass one borrow at a time for write access/mutability.
+///
+/// Rust Stack | Copy Types
+///  bool
+///  character
+///  numbers
+///  slices
+///  fix sized arrays
+///  tuples containing primitives
+///  function pointers
+///
+/// 
+/// 
+
+///we return the ownership ... now v does not have a ownership
+fn re(v:Vec<i32>) -> Vec<i32>{
+    println!("{}",v[10]+v[11]);
+    v//return the ownership
+}
+
+///Barrowing
+fn barrow1(v:&Vec<i32>){
+    println!("{}",(*v)[10]+(*v)[11]);
+}
+
+fn barrow2(v:&Vec<i32>){
+    println!("{}",v[10]+v[11]);
+}
+//ownership still left the fnc caller
+fn copy(a:i32, b:i32)
+{
+    println!("a is {} b is {} a+b = {}",a,b,a+b);
+    //But If you were return something like 
+    //a+b then ownership goes away 
+}
+
 pub fn barrowing()
 {
     println!("Barrowing");
@@ -44,24 +103,24 @@ pub fn ownership(){
     let b=10;
     //can run coz copying try to return a+b directlly panic error will occur
     copy(a, b);
+    println!("{}",a);
+    println!("{}",b);
 
     println!("\n");
 }
-//we return the ownership ... now v does not have a ownership
-fn re(v:Vec<i32>) -> Vec<i32>{
-    println!("{}",v[10]+v[11]);
-    v//return the ownership
-}
+///Because s is created inside dangle, when the code of dangle is finished, 
+/// s will be deallocated. But we tried to return a reference to it. 
+/// That means this reference would be pointing to an invalid String. 
+/// That’s no good! Rust won’t let us do this.
+// fn dangle()-> &String {
+//     let s = String::from("Sh.t");
+//     &s
+// }
 
-fn barrow1(v:&Vec<i32>){
-    println!("{}",(*v)[10]+(*v)[11]);
-}
-fn barrow2(v:&Vec<i32>){
-    println!("{}",v[10]+v[11]);
-}
-//ownership still left the fnc caller
-fn copy(a:i32, b:i32)
+pub fn test_it()
 {
-    println!("a is {} b is {} a+b = {}",a,b,a+b);
+    ownership();
+    barrowing();
+    
 
 }
