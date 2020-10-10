@@ -1,5 +1,5 @@
 // mod primitive_types;
-mod ownership_barrowing;
+// mod ownership_barrowing;
 // mod execute_commands;
 // mod lifetime_parameter;
 // mod defining_traits;
@@ -11,8 +11,9 @@ mod ownership_barrowing;
 // mod lifetime_pointer;
 // mod box_and_closure;
 // mod macros;
-// mod threads_mutexes;
-mod configuration_conditional;
+// mod threads_channels;
+mod mutex_and_arc;
+// mod configuration_conditional;
 //use testlibrary;
 
 fn main(){
@@ -20,8 +21,7 @@ fn main(){
     // primitive_types::tuple_types();
     // primitive_types::array_types();
     // primitive_types::primitives();
-     ownership_barrowing::test_it();
-     
+    //ownership_barrowing::test_it();     
     // execute_commands::list_directory("/home/caglar");
     // execute_commands::pipe_two_process("code");
     // lifetime_parameter::test_it();
@@ -35,8 +35,9 @@ fn main(){
     // lifetime_pointer::test_it();
     // box_and_closure::test_it();   
     // macros::test_it();   
-    //threads_mutexes::test_it();
-    configuration_conditional::test_it();
+    // threads_channels::test_it();
+    mutex_and_arc::test_it();
+    // configuration_conditional::test_it();
 
     
 }
