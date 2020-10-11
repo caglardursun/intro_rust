@@ -3,8 +3,11 @@ name = "basics"
 version = "0.1.0"
 authors = ["Çağlar Dursun <dursuncaglar@gmail.com>"]
 edition = "2018"
+# See https://doc.rust-lang.org/rust-by-example/cargo/build_scripts.html
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+
 [dependencies]
 testlibrary = {path="../testlibrary"}
+

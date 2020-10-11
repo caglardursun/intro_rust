@@ -154,6 +154,16 @@ use std::thread;
 use std::sync::mpsc;
 //Channels,thread move
 
+
+let mut v = vec![2,4,6,8];
+
+//move closure is often used when threads are involved.
+let handle = thread::spawn(move || {
+        println!("Vector {:?}",v);
+});
+
+handle.join().unwrap();
+
 ```
 ### some_cool_features : 
 These features comes with Rust 2018. 
