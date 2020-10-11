@@ -164,6 +164,14 @@ let handle = thread::spawn(move || {
 
 handle.join().unwrap();
 
+
+let (tx,rx) = mpsc::channel();
+thread::spawn(move || {tx.send(42).unwrap();});
+//recv -> Blocking tryrecv -> Nonblockig
+println!("got {}",rx.recv().unwrap());
+
+
+
 ```
 ### some_cool_features : 
 These features comes with Rust 2018. 
