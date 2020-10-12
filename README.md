@@ -1,6 +1,6 @@
 # Introduction to Rust Language
 
-My personal experience about Rust Language. If you don't want to debug, just go to the directory of the apps. Open up the terminal and run `cargo run` command. If you wanna debug the application, make sure vscode code launch configuration is like that 
+My personal experience about Rust Language. If you don't want to debug, just open up the terminal and run `cargo run basics` command. If you wanna debug the application, make sure vscode code launch configuration is like that 
 
 ```json
 {
@@ -11,7 +11,7 @@ My personal experience about Rust Language. If you don't want to debug, just go 
             "type": "lldb",
             "request": "launch",
             "name": "Debug Basics",
-            "program": "${workspaceFolder}/basics/target/debug/basics",
+            "program": "${workspaceFolder}/target/debug/basics",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask":"Cargo build"
