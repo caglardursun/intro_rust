@@ -1,6 +1,6 @@
 # Introduction to Rust Language
 
-My personal experience about Rust Language. If you don't want to debug, just open up the terminal and run `cargo run basics` command. If you wanna debug the application, make sure vscode code launch configuration looks like that 
+My personal experience about Rust Language. If you don't want to debug, just open up the terminal and run `cargo run` command. If you wanna debug the application, make sure vscode code launch configuration looks like that 
 
 ```json
 {
